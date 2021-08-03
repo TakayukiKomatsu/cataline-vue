@@ -1,5 +1,6 @@
 <template>
-  <h1>{{ message }}</h1>
+  <h1>{{ count }}</h1>
+  <button @click="count++"></button>
 </template>
 
 <script lang="ts">
@@ -8,14 +9,15 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   data() {
     return {
-      message: 'Hello world'
+      count: 0
     }
   },
-  beforeCreate() {
-    console.log('Antes da criação')
+  beforeUpdate() {
+    console.log('Antes da atualização')
   },
-  created() {
-    console.log('Depois da criação')
+  updated() {
+    console.log('Depois da atualização')
+    if (this.count == 5) this.count = 6
   }
 })
 </script>
