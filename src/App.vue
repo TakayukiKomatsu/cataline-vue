@@ -1,9 +1,20 @@
 <template>
-  <h1>Hello world</h1>
+  <h1>{{ person }}</h1>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-export default defineComponent({})
+interface Person {
+  name: string
+  age: number
+}
+
+export default defineComponent({
+  data() {
+    return {
+      person: {} as Person
+    }
+  }
+})
 </script>
