@@ -1,19 +1,20 @@
 <template>
-  <h1>{{ person }}</h1>
+  <h1>{{ fullName }}</h1>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-interface Person {
-  name: string
-  age: number
-}
-
 export default defineComponent({
   data() {
     return {
-      person: {} as Person
+      name: 'Takayuki',
+      lastName: 'Komatsu'
+    }
+  },
+  computed: {
+    fullName(): string {
+      return `${this.name} ${this.lastName}`
     }
   }
 })
