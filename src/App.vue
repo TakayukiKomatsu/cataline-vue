@@ -1,5 +1,8 @@
 <template>
-  <h1>{{ message }}</h1>
+  <h1>{{ count }}</h1>
+
+  <button @click="count++">Incrementar</button>
+  <button @click="destroyComponent">Desmontar</button>
 </template>
 
 <script lang="ts">
@@ -8,14 +11,19 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   data() {
     return {
-      message: 'Hello world'
+      count: 0
     }
   },
-  beforeCreate() {
-    console.log('Antes da criação')
+  beforeUnmount() {
+    console.log('Antes de desmontar')
   },
-  created() {
-    console.log('Depois da criação')
+  unmounted() {
+    console.log('Depois de desmontar')
+  },
+  methods: {
+    destroyComponent() {
+      this.$.appContext.app.unmount()
+    }
   }
 })
 </script>
