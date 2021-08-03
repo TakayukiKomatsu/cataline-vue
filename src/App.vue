@@ -11,11 +11,11 @@ export default defineComponent({
       message: 'Hello world'
     }
   },
-  beforeCreate() {
-    console.log('Antes da criação')
+  beforeMount() {
+    console.log(this.$el)
   },
-  created() {
-    console.log('Depois da criação')
+  mounted() {
+    console.log(this.$el)
   }
 })
 </script>
