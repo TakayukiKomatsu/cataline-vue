@@ -1,11 +1,7 @@
 <template>
-  <a :href="product.url" :class="productClass">{{ product.name }}</a>
+  <p>{{ company }} é legal</p>
 
-  OR
-
-  <a v-bind:href="product.url" v-bind:class="productClass">{{
-    product.name
-  }}</a>
+  <p v-text="company">é legal</p>
 </template>
 
 <script lang="ts">
@@ -14,26 +10,10 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   data() {
     return {
-      product: {
-        name: 'Camisa',
-        url: 'http://loja.com/produtos/12345',
-        stock: true
-      }
-    }
-  },
-  computed: {
-    productClass(): string {
-      return this.product.stock ? 'success' : 'danger'
+      company: 'Cataline'
     }
   }
 })
 </script>
 
-<style scoped>
-.danger {
-  color: red;
-}
-.success {
-  color: green;
-}
-</style>
+<style scoped></style>
