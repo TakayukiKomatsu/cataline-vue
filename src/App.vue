@@ -1,39 +1,23 @@
 <template>
-  <a :href="product.url" :class="productClass">{{ product.name }}</a>
+  <a href="#interno" v-on:click="something">Link Interno </a>
 
-  OR
+  <a href="#interno" @click="something">Link Interno </a>
 
-  <a v-bind:href="product.url" v-bind:class="productClass">{{
-    product.name
-  }}</a>
+  <input type="text" name="" id="" @keyup.enter="something" />
+
+  <input type="text" name="" id="" @keyup.k="something" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  data() {
-    return {
-      product: {
-        name: 'Camisa',
-        url: 'http://loja.com/produtos/12345',
-        stock: true
-      }
-    }
-  },
-  computed: {
-    productClass(): string {
-      return this.product.stock ? 'success' : 'danger'
+  methods: {
+    something() {
+      console.log('Hello world')
     }
   }
 })
 </script>
 
-<style scoped>
-.danger {
-  color: red;
-}
-.success {
-  color: green;
-}
-</style>
+<style scoped></style>
